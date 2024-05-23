@@ -12,7 +12,7 @@ class DoublyLinkedList {
     this.tail = null;
   }
 
-  unshift(data) { // Renamed from insertAtHead
+  unshift(data) {
     const newNode = new Node(data);
     if (this.head === null) {
       this.head = this.tail = newNode;
@@ -23,7 +23,7 @@ class DoublyLinkedList {
     }
   }
 
-  push(data) { // Renamed from insertAtTail
+  push(data) {
     const newNode = new Node(data);
     if (this.tail === null) {
       this.head = this.tail = newNode;
@@ -34,7 +34,7 @@ class DoublyLinkedList {
     }
   }
 
-  shift() { // Renamed from removeHead
+  shift() {
     if (!this.head) return null;
     const removedData = this.head.data;
     this.head = this.head.next;
@@ -46,7 +46,7 @@ class DoublyLinkedList {
     return removedData;
   }
 
-  pop() { // Renamed from removeTail
+  pop() {
     if (!this.tail) return null;
     const removedData = this.tail.data;
     this.tail = this.tail.prev;
@@ -58,7 +58,7 @@ class DoublyLinkedList {
     return removedData;
   }
 
-  find(data) { // Renamed from search
+  find(data) {
     let currentNode = this.head;
     while (currentNode) {
       if (currentNode.data === data) {
@@ -70,7 +70,7 @@ class DoublyLinkedList {
   }
 
   insertAfter(node, data) {
-    if (!node) return; // Node doesn't exist
+    if (!node) return;
     const newNode = new Node(data);
     newNode.next = node.next;
     newNode.prev = node;
@@ -98,9 +98,9 @@ class DoublyLinkedList {
   remove(node) {
     if (!node) return;
     if (node === this.head) {
-      this.shift(); // Use the existing shift method
+      this.shift();
     } else if (node === this.tail) {
-      this.pop();  // Use the existing pop method
+      this.pop();
     } else {
       node.prev.next = node.next;
       node.next.prev = node.prev;
